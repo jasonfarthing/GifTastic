@@ -22,33 +22,34 @@ function displayInstrument() {
     }).done(function (response) {
         
 
-        var instrumentData = response.data;
-        for (i = 0; i < instrumentData.length; i++);
-        console.log(response);
+        var result = response.data;
+        for (i = 0; i < result.length; i++){
+        console.log(i);
+        console.log(result[i]);
         // var instrumentDiv = $("<div class='instr-container'>");
 
         var rating = response.rating; //may need to change this destination
 
-        var instrumentStill = instrumentData[i].images.fixed_width.url; //still image
+        var instrumentStill = result[i].images.fixed_width.url; //still image
 
-        var instrumentAnimated = response.images.fixed_width.mp4; //animated gif
+        var instrumentAnimated = result[i].images.fixed_width.mp4; //animated gif
 
         var instrumentImage = $("<img>").attr("src", instrumentStill);
 
-        instrumentDiv.append(instrumentImage);
-        instrumentDiv.append(instrumentAnimated);
+        // instrumentDiv.append(instrumentImage);
+        // instrumentDiv.append(instrumentAnimated);
 
         var instrumentDiv = $("<div>");
 
-        var p = $("<p>").text("Rating = " + instrumentData[i].rating);
+        var p = $("<p>").text("Rating = " + result[i].rating);
         instrumentDiv.append(p);
 
-        instrumentImage.attr("src", instrumentData[i].images.fixed_width.url);
+        instrumentImage.attr("src", result[i].images.fixed_width.url);
 
-        // instrumentDiv.append(instrumentImage);
+        instrumentDiv.append(instrumentImage);
 
-        $("#gif-images").append(instrumentImage);
-
+        $("#gif-images").append(instrumentDiv);
+        }
     });
 };
 
