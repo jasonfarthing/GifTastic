@@ -26,7 +26,7 @@ function displayInstrument() {
         for (i = 0; i < result.length; i++){
         console.log(i);
         console.log(result[i]);
-        // var instrumentDiv = $("<div class='instr-container'>");
+        
 
         var rating = response.rating; //may need to change this destination
 
@@ -45,10 +45,16 @@ function displayInstrument() {
         instrumentDiv.append(p);
 
         instrumentImage.attr("src", result[i].images.fixed_width.url);
+        // instrumentImage.attr({
+        //     src: ('result[i].images.fixed_width.url');
+
+        // })
+
+        //trying to add multiple attributes but it broke my code ???
 
         instrumentDiv.append(instrumentImage);
 
-        $("#gif-images").append(instrumentDiv);
+        $("#gif-images").prepend(instrumentDiv);
         }
     });
 };
