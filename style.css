@@ -1,11 +1,12 @@
-* {
+/* /* * {
     border: solid 1px red;
-}
+}*/
 body{
     background: tan;
 }
 h1{
     color: red;
+    text-align: center;
     
 }
 .container{
