@@ -20,15 +20,18 @@ function displayInstrument() {
         url: queryURL,
         method: "GET",
     }).done(function (response) {
-        console.log(response);
+        
 
+        var instrumentData = response.data;
+        for (i = 0; i < instrumentData.length; i++);
+        console.log(response);
         // var instrumentDiv = $("<div class='instr-container'>");
 
-        var rating = response.data.rating; //may need to change this destination
+        var rating = response.rating; //may need to change this destination
 
-        var instrumentStill = response.data.images.fixed_width.url; //still image
+        var instrumentStill = instrumentData[i].images.fixed_width.url; //still image
 
-        var instrumentAnimated = response.data.images.fixed_width.mp4; //animated gif
+        var instrumentAnimated = response.images.fixed_width.mp4; //animated gif
 
         var instrumentImage = $("<img>").attr("src", instrumentStill);
 
